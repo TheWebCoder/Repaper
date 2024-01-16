@@ -17,13 +17,10 @@ function getValues() {
 
 //check if the string is a palindrome
 function checkForPalindrome(userString) {
-    //Taco Cat
-    //taC ocaT
-
+    //converting every character to lowercase
     userString = userString.toLowerCase();
 
     //remove spaces and special characters
-
     let regex = /[^a-z0-9]/gi;
     userString = userString.replace(regex, "");
 

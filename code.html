@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Bryan Gonzalez</title>
+    <title>Repaper: A Coding Project By Bryan Gonzalez</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,10 +46,10 @@
                     <a class="nav-link active" aria-current="page" href="code.html">THE CODE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">GIT REPO</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/TheWebCoder/Repaper">GIT REPO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">ABOUT</a>
+                    <a class="nav-link" target="_blank" href="https://bryangonzalez.dev/">ABOUT</a>
                 </li>
             </ul>
         </div>
@@ -63,17 +63,67 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function HelloWorld() {
-                            alert("Hello World");
+                        //get our user input
+                        function getValues() {
+                            //make sure the alert is invisible
+                            if (document.getElementById("alert").classList.contains("visible")) {
+                                document.getElementById("alert").classList.add("invisible");
+                            }
+
+                            //get user string for the page
+                            let userString = document.getElementById("userString").value;
+
+                            //check for palindrome
+                            let returnObj = checkForPalindrome(userString);
+
+                            //display our message to the screen
+                            displayMessage(returnObj);
+                        }
+
+                        //check if the string is a palindrome
+                        function checkForPalindrome(userString) {
+                            
+                            //converting userstring to lower case
+                            userString = userString.toLowerCase();
+
+                            //remove spaces and special characters
+                            let regex = /[^a-z0-9]/gi;
+                            userString = userString.replace(regex, "");
+
+                            let revString = [];
+                            let returnObj = {};
+
+                            for (let i = userString.length - 1; i >= 0; i--) {
+                                revString += userString[i];
+                            }
+
+                            if (revString == userString) {
+                                returnObj.msg = "Well done! You entered a Palindrome!"
+                            } else {
+                                returnObj.msg = "Sorry! You did not enter a Palindrome!"
+                            }
+
+                            returnObj.reversed = revString;
+
+                            return returnObj;
+                        }
+
+                        function displayMessage(returnObj) {
+                            document.getElementById("alertHeader").innerHTML = returnObj.msg;
+                            document.getElementById("msg").innerHTML = `Your phrase reversed is: ${returnObj.reversed}`;
+                            document.getElementById("alert").classList.remove("invisible");
                         }
                     </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                    <p>The Code is structured in three functions.</p>
+                    <h5>getValues()</h5>
+                    <p>This function is the entry point of the application. It gets triggered via an event listener on the submit button of the app page. In this function we first make sure the alert div is invisible by checking if contains the class visible and if it does it adds the invisible class to hide it. Next a variable is declared and assigned to the user's entered string value. Another variable is declared to hold the value of the result of passing the userString variable to the checkForPalindrome function. Lastly we pass that variable to our displayMessage function.</p>
+                    <h5>checkForPalindrome(userString)</h5>
+                    <p>Our logic for palindrome checking is handled by this function. This function accepts the userString variable as a parameter and does the following. First it converts every character in string to lower case, next using a regular expression, it removes all spaces and special characters. Next a for loop is used to reverse the user's string and a comparison is made with the claned user string and the reversed version. It then returns an object containing the reversed string and message on whether or not the string entered is a Palindrome.  </p>
+                    <h5>displayMessage(returnObj)</h5>
+                    <p>This acts like the display or view function. It displays the result of the palindrome check by updating the alertHeader with the message contained in returnObj. Additionally, it also displays the reversed string. To make sure the results is visible, it removes the invisible class from the alert element. </p>
                 </div>
             </div>
         </div>
@@ -86,12 +136,12 @@
                     <div><span class="text-muted">&copy;2023</span> Bryan Gonzalez | bryan@bryangonzalez.dev</div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
-                    <img src="img/logo-full-name-dark.png" alt="Bryan Gonzalez Logo">
+                    <a href="https://bryangonzalez.dev/" target="_blank"><img src="img/logo-full-name-dark.png" alt="Bryan Gonzalez Logo"></a>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://www.linkedin.com/in/the-web-coder/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://github.com/TheWebCoder/" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
                         <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
                     </div>
                 </div>
