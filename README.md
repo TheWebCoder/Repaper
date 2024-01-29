@@ -1,7 +1,8 @@
 # Repaper
+[![Demo](https://img.shields.io/badge/DEMO-blue)](https://fizzbuzzweb.netlify.app/)
 
 ## Overview
-Repaper is a palindrome. A Palindrome is a word, phrase, or sequence that reads the same backward as forward. Write a program that checks if the phrase entered is a palindrome. This project includes a program that allows users to enter a phrase or word and checks if it is a palindrome, demonstrating string manipulation and conditional logic in JavaScript.
+Repaper is a palindrome. A Palindrome is a word, phrase, or sequence that reads the same backward as forward. This program checks if the phrase entered is a palindrome. This project includes a program that allows users to enter a phrase or word and check if it is a palindrome, demonstrating string manipulation and conditional logic in JavaScript.
 
 ## Features
 - **Palindrome Checker**: Allows users to input any text and checks if it is a palindrome.
@@ -12,7 +13,7 @@ Repaper is a palindrome. A Palindrome is a word, phrase, or sequence that reads 
 
 ## How to Use
 - **Home Page**: Offers an overview of the project. 
-- **The App**: Interactive section where users can enter a phrase or word and check if it's a palindrome. 
+- **The App**: The main section where users can enter a phrase or word and check if it's a palindrome. 
 - **The Code**: Provides insights into the project's code structure and logic.
 
 ## Technology Stack
